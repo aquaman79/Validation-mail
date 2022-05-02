@@ -53,7 +53,7 @@ const jwt = require("jsonwebtoken")
 }
 const gets = async (req,res)=>{
   try{
-    var decoded = jwt.verify(req.body, process.env.SECRET); 
+    var decoded = jwt.verify(req.params.tokenTom, process.env.SECRET); 
     if(decoded==user.tokenTom)
     {
       await module.User.update({confirm:true});
