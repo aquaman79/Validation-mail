@@ -4,8 +4,10 @@ const uuidv1 = require("uuidv1");
 
 const userSchema = mongoose.Schema({
     name : String, 
-    email :{type:String, require : true},
-    encry_password:{type:String, require : true}, 
+    email :{type:String, required : true},
+    encry_password:{type:String, required : true},
+    confirmed :{type : Boolean , default : false},
+    tokenTom:String ,
     salt :String  
 })
 userSchema.virtual("password")
@@ -35,3 +37,4 @@ userSchema.virtual("password")
 const User = mongoose.model("User",userSchema)
 
 module.exports = User
+//bcryte 
